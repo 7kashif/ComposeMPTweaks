@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
-@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun App() {
     MaterialTheme {
@@ -21,13 +20,7 @@ fun App() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Text(
-                text = "ComposeMPTweaks"
-            )
-            Icon(
-                painter = painterResource(res = DrawableHelper.LIKE),
-                contentDescription = null
-            )
+            LinkedInReaction()
         }
     }
 }
