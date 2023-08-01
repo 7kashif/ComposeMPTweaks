@@ -18,6 +18,10 @@ import kotlinx.coroutines.delay
 
 val BostonBlue = Color(0xFF3A98B9)
 
+
+/**
+ * WIP
+ */
 @Composable
 fun BouncingBallAnimation() {
 
