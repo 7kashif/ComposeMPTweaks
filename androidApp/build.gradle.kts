@@ -35,3 +35,13 @@ android {
         jvmToolchain(11)
     }
 }
+dependencies {
+    implementation(project(":shared"))
+    implementation(libs.androidx.work.runtime)
+    implementation(libs.androidx.multidex)
+
+    coreLibraryDesugaring(libs.desugaring)
+
+    //koin
+    implementation(libs.koin.compose)
+}
