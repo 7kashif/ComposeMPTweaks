@@ -18,7 +18,7 @@ class RemoteDataSource(
     private lateinit var session: DefaultClientWebSocketSession
 
     fun chatWebSocket() = flow {
-        val url = "ws://192.168.100.34:8080/chat/$platform"
+        val url = "ws://YOUR_IP_ADDRESS_HERE:8080/chat/$platform"
 
         httpClient.webSocket(
             urlString = url,
