@@ -11,3 +11,5 @@ actual fun platformModule() = module {
         Darwin.create()
     }
 }
+
+actual fun currentPlatform() = "iOS"

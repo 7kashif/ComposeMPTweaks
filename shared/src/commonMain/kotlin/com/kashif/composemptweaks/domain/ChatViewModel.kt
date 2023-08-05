@@ -1,5 +1,6 @@
 package com.kashif.composemptweaks.domain
 
+import com.kashif.composemptweaks.currentPlatform
 import com.kashif.composemptweaks.data.dto.MessageDTO
 import com.kashif.composemptweaks.data.repository.DataRepository
 import kotlinx.coroutines.CoroutineScope
@@ -31,9 +32,14 @@ class ChatViewModel(
         }
     }
 
-    fun sendMessage(messageDTO: MessageDTO) {
+    fun sendMessage(text: String) {
         CoroutineScope(Dispatchers.Default).launch {
-            repository.sendMessage(messageDTO)
+            repository.sendMessage(
+                MessageDTO(
+                    sender = currentPlatform(),
+                    message = text
+                )
+            )
         }
     }
 

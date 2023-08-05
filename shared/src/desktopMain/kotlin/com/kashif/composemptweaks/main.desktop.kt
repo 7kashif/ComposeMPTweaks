@@ -16,3 +16,5 @@ actual fun platformModule() = module {
         Java.create()
     }
 }
+
+actual fun currentPlatform() = "Desktop"

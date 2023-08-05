@@ -17,3 +17,5 @@ actual fun platformModule() = module {
         Android.create()
     }
 }
+
+actual fun currentPlatform() = "Android"

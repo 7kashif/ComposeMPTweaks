@@ -12,3 +12,5 @@ fun App() {
 }
 
 expect fun platformModule(): Module
+
+expect fun currentPlatform(): String
