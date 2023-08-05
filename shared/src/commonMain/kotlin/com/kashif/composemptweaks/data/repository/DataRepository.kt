@@ -7,6 +7,10 @@ class DataRepository(
     private val dataSource: RemoteDataSource
 ) {
 
-    suspend fun chatWebSocket(messageDTO: MessageDTO) = dataSource.chatWebSocket()
+    fun initChat() = dataSource.chatWebSocket()
+
+    suspend fun sendMessage(messageDTO: MessageDTO) {
+        dataSource.sendMessage(messageDTO)
+    }
 
 }

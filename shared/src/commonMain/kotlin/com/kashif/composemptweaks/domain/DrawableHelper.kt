@@ -1,4 +1,4 @@
-package com.kashif.composemptweaks
+package com.kashif.composemptweaks.domain
 
 object DrawableHelper {
     const val CLAP = "drawables/clap.xml"
@@ -7,4 +7,5 @@ object DrawableHelper {
     const val INSIGHTFUL = "drawables/insightful.xml"
     const val LIKE = "drawables/like.xml"
     const val SUPPORT = "drawables/support.xml"
+    const val IC_SEND = "drawables/ic_send.xml"
 }

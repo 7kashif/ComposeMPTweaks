@@ -20,7 +20,7 @@ class ChatViewModel(
     fun initiateChat() {
         CoroutineScope(Dispatchers.Default).launch {
             try {
-                repository.chatWebSocket(MessageDTO()).collectLatest { message ->
+                repository.initChat().collectLatest { message ->
                     _messages.update {
                         it + message
                     }
@@ -28,6 +28,12 @@ class ChatViewModel(
             } catch (e: Exception) {
                 e.printStackTrace()
             }
+        }
+    }
+
+    fun sendMessage(messageDTO: MessageDTO) {
+        CoroutineScope(Dispatchers.Default).launch {
+            repository.sendMessage(messageDTO)
         }
     }
 
