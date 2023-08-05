@@ -14,13 +14,8 @@ class RemoteDataSource(
     private val platform: String
 ) {
 
-    init {
-        chatWebSocket()
-    }
-
     fun chatWebSocket() = flow {
-        //replace LOCAL_HOST with your IP Address if websocket is running on your local device.
-        val url = "ws://LOCAL_HOST:8080/chat/$platform"
+        val url = "ws://192.168.100.34:8080/chat/$platform"
 
         httpClient.webSocket(
             urlString = url,
@@ -28,9 +23,9 @@ class RemoteDataSource(
             for (frame in incoming) {
                 if (frame is Frame.Text) {
                     val messageJson = frame.readText()
-//                    val item = json.decodeFromString<MessageDTO>(messageJson)
-                    println("Received message from server: $messageJson")
-                    emit(MessageDTO())
+                    val item = json.decodeFromString<MessageDTO>(messageJson)
+                    println("Received message from server: $item")
+                    emit(item)
                 }
             }
         }

@@ -1,9 +1,10 @@
 plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
+    kotlin("plugin.serialization") version "1.9.0"
     id("com.android.library")
     id("org.jetbrains.compose")
-    kotlin("plugin.serialization") version "1.8.20"
+    id("kotlin-parcelize")
 }
 
 kotlin {
@@ -33,6 +34,7 @@ kotlin {
             dependencies {
 
                 implementation(libs.compose.util)
+
                 implementation(libs.ktor.serialization)
                 implementation(libs.ktor.json)
                 implementation(libs.ktor.client.logging)
@@ -40,17 +42,20 @@ kotlin {
                 implementation(libs.ktor.contentnegotiation)
                 implementation(libs.ktor.web.sockets)
                 implementation(libs.ktor.cio)
-                implementation(libs.kotlin.serialization)
+
                 implementation(libs.koin.core)
                 implementation(libs.koin.compose.mp)
+
                 implementation(libs.kotlinx.coroutines.core)
+                implementation(libs.kotlin.serialization)
+
                 api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material)
                 api(compose.ui)
                 api(compose.animation)
                 // Workaround as per https://youtrack.jetbrains.com/issue/KT-41821
-                implementation("org.jetbrains.kotlinx:atomicfu:0.17.2")
+                implementation("org.jetbrains.kotlinx:atomicfu:0.21.0")
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
             }
