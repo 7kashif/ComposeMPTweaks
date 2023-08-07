@@ -7,7 +7,7 @@ import org.koin.core.module.Module
 @Composable
 fun App() {
     MaterialTheme {
-        Chat()
+        DayNightSwitch()
     }
 }
 
