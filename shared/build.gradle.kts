@@ -49,6 +49,9 @@ kotlin {
                 implementation(libs.kotlinx.coroutines.core)
                 implementation(libs.kotlin.serialization)
 
+                implementation(libs.voyager.navigator)
+                implementation(libs.voyager.transitions)
+
                 api(compose.runtime)
                 api(compose.foundation)
                 api(compose.material)
@@ -58,6 +61,11 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:atomicfu:0.21.0")
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
+
+                api(libs.coil.mp)
+                api(libs.coil.network.ktor)
+                api(libs.coil.compose.core)
+                api(libs.coil.compose)
             }
         }
         val androidMain by getting {

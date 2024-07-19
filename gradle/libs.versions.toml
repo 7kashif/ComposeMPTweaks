@@ -41,7 +41,15 @@ kmm-viewmodel = "1.0.0-ALPHA-6"
 desugaring-version = "2.0.3"
 
 koin-compose-jb = "1.0.3"
+
+voyagerVersion = "1.0.0-rc05"
+
+coil3 = "3.0.0-alpha06"
+
 [libraries]
+
+voyager-navigator = {module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyagerVersion"}
+voyager-transitions = {module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyagerVersion"}
 
 desugaring = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugaring-version" }
 androidx-multidex = { module = "androidx.multidex:multidex", version.ref = "multidex" }
@@ -76,3 +84,8 @@ kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-c
 image-loader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "image-loader-version" }
 
 kmm-viewmodel = { module = "com.rickclephas.kmm:kmm-viewmodel-core", version.ref = "kmm-viewmodel" }
+
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil3" }
+coil-compose-core = { module = "io.coil-kt.coil3:coil-compose-core", version.ref = "coil3" }
+coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor", version.ref = "coil3" }
+coil-mp = { module = "io.coil-kt.coil3:coil", version.ref = "coil3" }
