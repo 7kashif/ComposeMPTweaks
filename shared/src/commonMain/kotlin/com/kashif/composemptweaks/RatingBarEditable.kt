@@ -145,10 +145,10 @@ class StarShape : Shape {
         for (i in 0 until numPoints * 2) {
             val radius = if (i % 2 == 0) outerRadius else innerRadius
             val x =
-                size.width / 2.0f + radius * kotlin.math.cos(Math.toRadians(currentAngle.toDouble()))
+                size.width / 2.0f + radius * kotlin.math.cos(currentAngle.toDouble() * 0.017453292519943295) //converting angle to radian
                     .toFloat()
             val y =
-                size.height / 2.0f + radius * kotlin.math.sin(Math.toRadians(currentAngle.toDouble()))
+                size.height / 2.0f + radius * kotlin.math.sin(currentAngle.toDouble() * 0.017453292519943295) //converting angle to radian
                     .toFloat()
             val point = Offset(x, y)
 
