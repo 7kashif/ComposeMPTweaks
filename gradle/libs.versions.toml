@@ -1,48 +1,26 @@
 [versions]
-
-core = "0.6.3"
-kotlin = "1.9.2"
-agp = "7.4.1"
-
-android-version-name = "1.1.2"
-android-version-code = "33"
-
-coil-version = "2.1.0"
-
-
-coreKtx = "1.10.1"
+coreKtx = "1.13.1"
 appcompat = "1.6.1"
-activity = "1.7.2"
+activity = "1.9.1"
 
-compileSdk = "33"
-kotlinxCoroutinesCore = "1.7.2"
-kotlinxDatetime = "0.4.0"
-kotlinxSerializationCore = "1.3.3"
+kotlinxCoroutinesCore = "1.8.0"
 multidex = "2.0.1"
 
-koin-version = "3.4.2"
-koin-compose-version = "3.4.2"
+koin-version = "3.5.3"
+koin-compose-version = "3.5.0"
 
-ktor_version = "2.3.3"
-kotlin-serialization = "1.5.1"
+ktor_version = "2.3.9"
+kotlin-serialization = "1.6.3"
 
-viewmodel-version = "1.0.0-ALPHA-4"
+workRuntime = "2.9.0"
 
-image-loader-version = "1.5.3"
+compose-multiplatform = "1.6.2"
 
-workRuntime = "2.8.1"
+desugaring-version = "2.0.4"
 
-compose-version = "1.4.6"
+koin-compose-jb = "1.1.2"
 
-compose-multiplatform = "1.4.3"
-
-kmm-viewmodel = "1.0.0-ALPHA-6"
-
-desugaring-version = "2.0.3"
-
-koin-compose-jb = "1.0.3"
-
-voyagerVersion = "1.0.0-rc05"
+voyagerVersion = "1.0.0"
 
 coil3 = "3.0.0-alpha06"
 
@@ -66,8 +44,6 @@ koin-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = 
 koin-compose-mp = { module = "io.insert-koin:koin-compose", version.ref = "koin-compose-jb" }
 
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
-kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinxDatetime" }
-ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor_version" }
 ktor-serialization = { module = "io.ktor:ktor-client-serialization", version.ref = "ktor_version" }
 ktor-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor_version" }
 ktor-ios = { module = "io.ktor:ktor-client-ios", version.ref = "ktor_version" }
@@ -79,11 +55,6 @@ ktor-contentnegotiation = { module = "io.ktor:ktor-client-content-negotiation", 
 ktor_web_sockets = { module = "io.ktor:ktor-client-websockets", version.ref = "ktor_version" }
 ktor_cio = {module = "io.ktor:ktor-client-cio", version.ref = "ktor_version"}
 kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "kotlin-serialization" }
-
-
-image-loader = { module = "io.github.qdsfdhvh:image-loader", version.ref = "image-loader-version" }
-
-kmm-viewmodel = { module = "com.rickclephas.kmm:kmm-viewmodel-core", version.ref = "kmm-viewmodel" }
 
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil3" }
 coil-compose-core = { module = "io.coil-kt.coil3:coil-compose-core", version.ref = "coil3" }
