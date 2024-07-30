@@ -1,11 +1,15 @@
 package com.kashif.composemptweaks.domain
 
+import org.jetbrains.compose.resources.DrawableResource
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+
+@OptIn(ExperimentalResourceApi::class)
 object DrawableHelper {
-    const val CLAP = "drawables/clap.xml"
-    const val CURIOUS = "drawables/curious.xml"
-    const val HEART = "drawables/heart.xml"
-    const val INSIGHTFUL = "drawables/insightful.xml"
-    const val LIKE = "drawables/like.xml"
-    const val SUPPORT = "drawables/support.xml"
-    const val IC_SEND = "drawables/ic_send.xml"
+    val CLAP = DrawableResource("drawables/clap.xml")
+    val CURIOUS = DrawableResource("drawables/curious.xml")
+    val HEART =DrawableResource( "drawables/heart.xml")
+    val INSIGHTFUL =DrawableResource( "drawables/insightful.xml")
+    val LIKE =DrawableResource( "drawables/like.xml")
+    val SUPPORT = DrawableResource("drawables/support.xml")
+    val IC_SEND = DrawableResource("drawables/ic_send.xml")
 }

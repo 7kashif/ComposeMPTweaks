@@ -30,6 +30,7 @@ import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
+@OptIn(ExperimentalResourceApi::class)
 private val reactions = listOf(
     DrawableHelper.LIKE,
     DrawableHelper.HEART,
@@ -87,7 +88,7 @@ fun LinkedInReaction() {
                     modifier = Modifier
                         .offset(x = xOffSets[index].value, y = yOffSets[index].value)
                         .size(sizes[index].value),
-                    painter = painterResource(res = item),
+                    painter = painterResource(resource = item),
                     contentDescription = null,
                     contentScale = ContentScale.Fit
                 )
@@ -99,7 +100,7 @@ fun LinkedInReaction() {
                     .clickable {
                         startAnimation = !startAnimation
                     },
-                painter = painterResource(res = DrawableHelper.LIKE),
+                painter = painterResource(resource = DrawableHelper.LIKE),
                 contentDescription = null,
                 contentScale = ContentScale.Fit
             )
@@ -136,16 +137,19 @@ fun getAnimatedSize(startAnimation: Boolean) = animateDpAsState(
     )
 )
 
+@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun getListOfXAnimations(animationToggles: List<Boolean>) = List(reactions.size) {
     getAnimationsX(startAnimation = animationToggles[it], count = it)
 }
 
+@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun getListOfYAnimations(animationToggles: List<Boolean>) = List(reactions.size) {
     getAnimationsY(startAnimation = animationToggles[it])
 }
 
+@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun getSizes(animationToggles: List<Boolean>) = List(reactions.size) {
     getAnimatedSize(startAnimation = animationToggles[it])

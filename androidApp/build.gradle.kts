@@ -17,13 +17,13 @@ kotlin {
 
 android {
     namespace = "com.kashif.composemptweaks"
-    compileSdk = (findProperty("android.compileSdk") as String).toInt()
+    compileSdk = 34
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
 
     defaultConfig {
         applicationId = "com.kashif.composemptweaks.android"
-        minSdk = (findProperty("android.minSdk") as String).toInt()
-        targetSdk = (findProperty("android.targetSdk") as String).toInt()
+        minSdk = 24
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
     }

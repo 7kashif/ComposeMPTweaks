@@ -24,9 +24,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 
+@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun CheckBoxWithText(
     modifier: Modifier = Modifier,
@@ -35,7 +37,7 @@ fun CheckBoxWithText(
     checkedBgColor: Color = Color.DarkGray,
     unCheckedBgColor: Color = Color.White,
     borderColor: Color = Color.DarkGray,
-    icon: String,
+    icon: DrawableResource,
     checked: Boolean = false,
     onCheckedChange: (Boolean) -> Unit,
 ) {
@@ -74,7 +76,7 @@ fun CustomCheckBox(
     checkedBgColor: Color = Color.DarkGray,
     unCheckedBgColor: Color = Color.White,
     borderColor: Color = Color.DarkGray,
-    icon: String,
+    icon: DrawableResource,
     checked: Boolean = false,
     onCheckedChange: (Boolean) -> Unit,
 ) {
@@ -98,7 +100,7 @@ fun CustomCheckBox(
         Column {
             AnimatedVisibility(visible = checked) {
                 Image(
-                    painter = painterResource(res = icon),
+                    painter = painterResource(resource = icon),
                     contentDescription = null,
                     contentScale = ContentScale.FillBounds,
                     modifier = Modifier

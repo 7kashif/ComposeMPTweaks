@@ -95,7 +95,7 @@ fun Chat(
                                 contentAlignment = Alignment.Center
                             ) {
                                 Icon(
-                                    painter = painterResource(res = DrawableHelper.IC_SEND),
+                                    painter = painterResource(resource = DrawableHelper.IC_SEND),
                                     contentDescription = null
                                 )
                             }

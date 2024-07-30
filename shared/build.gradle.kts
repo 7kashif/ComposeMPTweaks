@@ -26,7 +26,7 @@ kotlin {
             baseName = "shared"
             isStatic = true
         }
-        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
+//        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
     }
     
     sourceSets {
@@ -100,13 +100,13 @@ kotlin {
 
 android {
     namespace = "com.kashif.composemptweaks"
-    compileSdk = (findProperty("android.compileSdk") as String).toInt()
+    compileSdk = 34
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     sourceSets["main"].res.srcDirs("src/androidMain/res")
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
-        minSdk = (findProperty("android.minSdk") as String).toInt()
+        minSdk = 24
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

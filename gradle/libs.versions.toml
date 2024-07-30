@@ -1,7 +1,7 @@
 [versions]
 
 core = "0.6.3"
-kotlin = "1.8.20"
+kotlin = "1.9.2"
 agp = "7.4.1"
 
 android-version-name = "1.1.2"
