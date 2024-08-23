@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Slider
 import androidx.compose.material.Switch
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -21,11 +22,24 @@ import org.koin.core.module.Module
 @Composable
 fun App() {
     MaterialTheme {
+        val (value, setValue) = remember {
+            mutableStateOf(0f)
+        }
+
         Box(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().padding(32.dp),
             contentAlignment = Alignment.Center
         ) {
-            SegmentedCylinder()
+            Slider(
+                value = value,
+                onValueChange = setValue,
+                valueRange = 0f..100f,
+                modifier = Modifier.align(Alignment.TopCenter)
+            )
+
+            PercentageGauge(
+                percentage = value
+            )
         }
 
 
@@ -95,7 +109,7 @@ fun App() {
 //            )
 //            DotLoader()
 //            OTPView()
-        }
+//        }
     }
 }
 
