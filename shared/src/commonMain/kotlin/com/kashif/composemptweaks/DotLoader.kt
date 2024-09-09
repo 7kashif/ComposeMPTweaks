@@ -18,6 +18,7 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun DotLoader(
+    modifier: Modifier = Modifier,
     dotsCount: Int = 4,
     dotColor: Color = Color.DarkGray,
     dotSize: Float = 8f,
@@ -45,7 +46,7 @@ fun DotLoader(
     }
 
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier,
         contentAlignment = Alignment.Center
     ) {
         Canvas(modifier = Modifier.wrapContentSize(), onDraw = {

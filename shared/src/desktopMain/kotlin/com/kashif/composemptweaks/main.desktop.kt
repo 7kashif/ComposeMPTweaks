@@ -18,3 +18,8 @@ actual fun platformModule() = module {
 }
 
 actual fun currentPlatform() = "Desktop"
+
+@Composable
+actual fun getScreenDimension(): Pair<Int, Int> {
+    return Pair(800, 600)
+}

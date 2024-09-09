@@ -1,5 +1,7 @@
 package com.kashif.composemptweaks
 
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.border
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
@@ -14,6 +16,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
@@ -32,6 +35,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun RatingBarEditable(
+    modifier: Modifier = Modifier,
     rating: Float = 3f,
     maxRating: Int = 5,
     starSize: Dp = 32.dp,
@@ -45,10 +49,18 @@ fun RatingBarEditable(
         mutableStateOf(rating)
     }
 
+    var bigStarIndex by remember {
+        mutableStateOf(-1)
+    }
+
     Row(
-        modifier = Modifier.pointerInput(Unit) {
+        modifier = modifier.animateContentSize(animationSpec = tween(100)).pointerInput(key1 = isDraggable, key2 = isEditable ) {
             if (isEditable && isDraggable) {
-                detectHorizontalDragGestures { change, _ ->
+                detectHorizontalDragGestures(
+                    onDragEnd = {
+                        bigStarIndex = -1
+                    }
+                ) { change, _ ->
                     //converting the value in range of 0 to row's width to the range of 0 to maxRating
                     val cc = change.position.x.convertToRange(
                         oldRangeStart = 0f,
@@ -60,25 +72,32 @@ fun RatingBarEditable(
                     ratingChange =
                         cc.coerceIn(maximumValue = maxRating.toFloat(), minimumValue = 0f)
 
+                    bigStarIndex = ratingChange.toInt()
+
                     onValueChange(ratingChange)
 
                 }
             }
         },
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalAlignment = Alignment.CenterVertically
     ) {
         repeat(maxRating) { index ->
             Box(
                 modifier = Modifier
+                    .animateContentSize(
+                        animationSpec = tween(100)
+                    )
                     .clip(StarShape())
-                    .size(starSize)
+                    .size(if(index == bigStarIndex) (starSize.value * 1.5).dp else starSize)
                     .border(1.dp, ratingColor, StarShape())
             ) {
                 Canvas(
                     modifier = Modifier
+                        .animateContentSize(animationSpec = tween(100))
                         .clip(StarShape())
                         .fillMaxSize()
-                        .pointerInput(Unit) {
+                        .pointerInput(key1 = roundOffToWholeNumber, key2 = isEditable) {
                             if (isEditable) {
                                 detectTapGestures {
                                     ratingChange = if (roundOffToWholeNumber)

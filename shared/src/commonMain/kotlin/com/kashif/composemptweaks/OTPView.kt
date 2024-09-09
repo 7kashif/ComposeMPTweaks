@@ -34,8 +34,9 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun OTPView(
+    modifier: Modifier = Modifier,
     numberOfFields: Int = 4,
-    onValueChange: (String) -> Unit
+    onValueChange: (String) -> Unit = {}
 ) {
     var otp by remember {
         mutableStateOf("")
@@ -51,7 +52,7 @@ fun OTPView(
 
 
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         repeat(numberOfFields) { index ->

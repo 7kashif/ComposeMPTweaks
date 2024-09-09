@@ -1,7 +1,10 @@
+import org.jetbrains.kotlin.compose.compiler.gradle.ComposeFeatureFlag
+
 plugins {
     kotlin("multiplatform")
     kotlin("native.cocoapods")
     kotlin("plugin.serialization") version "1.9.0"
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.20"
     id("com.android.library")
     id("org.jetbrains.compose")
     id("kotlin-parcelize")
@@ -26,7 +29,6 @@ kotlin {
             baseName = "shared"
             isStatic = true
         }
-//        extraSpecAttributes["resources"] = "['src/commonMain/resources/**', 'src/iosMain/resources/**']"
     }
     
     sourceSets {
@@ -96,6 +98,13 @@ kotlin {
             }
         }
     }
+}
+
+composeCompiler {
+    featureFlags = setOf(
+        ComposeFeatureFlag.StrongSkipping.disabled(),
+        ComposeFeatureFlag.OptimizeNonSkippingGroups
+    )
 }
 
 android {

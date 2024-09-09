@@ -7,10 +7,13 @@ import org.koin.core.module.Module
 @Composable
 fun App() {
     MaterialTheme {
-        HighlightedTextSearch()
+        FluidBottomBar()
     }
 }
 
 expect fun platformModule(): Module
 
 expect fun currentPlatform(): String
+
+@Composable
+expect fun getScreenDimension(): Pair<Int, Int>
