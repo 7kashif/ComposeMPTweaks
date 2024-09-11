@@ -1,6 +1,8 @@
 package com.kashif.composemptweaks
 
 import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.animation.core.tween
@@ -32,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.platform.LocalDensity
@@ -67,8 +70,6 @@ fun FluidBottomBar(
         mutableFloatStateOf(0f)
     }
 
-    val width  = getScreenDimension().first
-
     val animateStartOffSet by animateFloatAsState(
         targetValue = startOffSet,
         label = "",
@@ -91,9 +92,9 @@ fun FluidBottomBar(
     }
 
     var animateCircle by remember { mutableStateOf(false) }
-    val animatedYOffset by animateFloatAsState(
-        targetValue = if (animateCircle) -30f else 0f,
-        animationSpec = tween(durationMillis = 450),
+    val animatedYOffset by animateDpAsState(
+        targetValue = if (animateCircle) (-24).dp else 12.dp,
+        animationSpec = tween(durationMillis = 300, easing = LinearEasing),
         label = "yOffsetAnimation",
         finishedListener = {
             animateCircle = false
@@ -134,15 +135,13 @@ fun FluidBottomBar(
                             path = path,
                             color = Color.LightGray
                         )
+                        drawCircle(
+                            color = Green,
+                            radius = 20.dp.toPx(),
+                            center = Offset(((size.width * animateStartOffSet)) + (size.width * 0.125f), animatedYOffset.toPx())
+                        )
                     }
             ) {
-                Box(
-                    modifier = Modifier
-                        .offset(x =( (animateStartOffSet * width) + width * 0.08).dp, y = ((-8 + animatedYOffset).dp))
-                        .clip(CircleShape)
-                        .size(40.dp)
-                        .background(Green)
-                )
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceAround
